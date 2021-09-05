@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 addons/ch.fischspiele.tilesethelper/not_for_export/
 engine.cfg
 icon.png
@@ -5,3 +6,28 @@ icon.png
 default_env.tres
 icon.png.import
 project.godot
+=======
+dist
+dist-*
+cabal-dev
+*.o
+*.hi
+*.hie
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.prof
+*.aux
+*.hp
+*.eventlog
+.stack-work/
+cabal.project.local
+cabal.project.local~
+.HTF/
+.ghc.environment.*
+>>>>>>> c98c0d8c4e1183600d25decbcf11ff9fe054aa9f
