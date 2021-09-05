@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Hadouken_Hadouken_0.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Hadouken_Hadouken_1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Hadouken_Hadouken_2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Hadouken_Hadouken_3.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Hadouken.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.69824, 5.03902 )
+
+[node name="Hadouken" type="Area2D"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.0960579, -0.300793 )
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.703553, -0.311796 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.0480433, -0.780016 )
+
+[connection signal="area_entered" from="." to="." method="_on_Hadouken_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Hadouken_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

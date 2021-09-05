@@ -38,19 +38,14 @@ animations = [ {
 "name": "Fall",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 26 ), ExtResource( 22 ), ExtResource( 16 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 24 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Idle",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 17 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Attack",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 15 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Jump",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 18 ) ],
@@ -58,10 +53,15 @@ animations = [ {
 "name": "Die",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 22 ), ExtResource( 16 ), ExtResource( 25 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 15 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "Walk",
-"speed": 8.0
+"name": "Jump",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 17 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 20.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -75,8 +75,8 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.0625, -0.125 )
 frames = SubResource( 1 )
-animation = "Idle"
-frame = 3
+animation = "Attack"
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -85,3 +85,8 @@ shape = SubResource( 2 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 12.9784, 3.31082 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
